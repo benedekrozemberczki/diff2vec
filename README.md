@@ -45,10 +45,10 @@ Creating an embedding of the default dataset.
 ```
 python src/diffusion_2_vec.py
 ```
-Creating an embedding of an other dataset named company_edges.csv.
+Creating an embedding of an other dataset the `Facebook Politicians`.
 
 ```
-python src/diffusion_2_vec.py --input data/company_edges.csv --output output/company.out
+python src/diffusion_2_vec.py --input data/politican_edges.csv --output output/politician.out
 ```
 
 Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 80.
