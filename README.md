@@ -21,23 +21,19 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 
 ### Options
 
-Learning of the embedding is handled by the `main.py` script which provides the following command line arguments.
+Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.
 
 ```
-  --seed INT                 Random seed for numpy, tensorflow
-  --datadir STR              Directory containing dataset files
-  --dataset STR              Name of dataset
-  --resultdir STR            Directory for saving tf checkpoints
-  --run-addbgm BOOL          Runs additive boosting if True
-  --addbgm-alpha FLOAT LIST  Space-separated list of model weights for additive boosting
-  --run-genbgm BOOL          Runs multiplicative generative boosting if True
-  --genbgm-alpha FLOAT LIST  Space-separated list of model weights for multiplicative generative boosting
-  --genbgm-beta FLOAT LIST   Space-separated list of reweighting exponents for multiplicative generative boosting
-  --run-discbgm BOOL         Runs multiplicative discriminative boosting if True
-  --discbgm-alpha FLOAT LIST Space-separated list of model weights for multiplicative generative boosting
-  --discbgm-epochs INT       Number of epochs of training for each discriminator
-  --discbgm-burn-in INT      Number of discarded burn in samples for Markov chains
-  --run-classifier BOOL      Uses generative model for classification if True
+  --input STR                   Path to the edge list csv.
+  --output STR                  Path to to embedding.
+  --dimensions INT              Number of embedding dimensions.
+  --vertex-set-cardinality INT  Number of nodes per diffusion tree.
+  --num-diffusions INT          Number of diffusion per source node.
+  --window-size INT             Context size for optimization.
+  --iter INT                    Number of ASGD iterations.
+  --workers INT                 Number of cores.
+  --alpha FLOAT                 Initial learning rate.
+  --type STR                    Type of diffusion tree linearization. Default is Eulerian.
 ```
 
 ### Examples
