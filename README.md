@@ -24,16 +24,16 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.
 
 ```
-  --input STR                   Path to the edge list csv.
-  --output STR                  Path to to embedding.
-  --dimensions INT              Number of embedding dimensions.
-  --vertex-set-cardinality INT  Number of nodes per diffusion tree.
-  --num-diffusions INT          Number of diffusion per source node.
-  --window-size INT             Context size for optimization.
-  --iter INT                    Number of ASGD iterations.
-  --workers INT                 Number of cores.
-  --alpha FLOAT                 Initial learning rate.
-  --type STR                    Type of diffusion tree linearization. Default is Eulerian.
+  --input STR                   Path to the edge list csv.                Default is `data/restaurant_edges.csv`
+  --output STR                  Path to to embedding.                     Default is `emb/restaurant.out`
+  --dimensions INT              Number of embedding dimensions.           Default is 128.
+  --vertex-set-cardinality INT  Number of nodes per diffusion tree.       Default is 80.
+  --num-diffusions INT          Number of diffusion per source node.      Default is 10.
+  --window-size INT             Context size for optimization.            Default is 10.
+  --iter INT                    Number of ASGD iterations.                Default is 1.
+  --workers INT                 Number of cores.                          Default is 4.
+  --alpha FLOAT                 Initial learning rate.                    Default is 0.025.
+  --type STR                    Type of diffusion tree linearization.     Default is Eulerian.
 ```
 
 ### Examples
