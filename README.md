@@ -51,10 +51,10 @@ Creating an embedding of an other dataset the `Facebook Politicians`.
 python src/diffusion_2_vec.py --input data/politician_edges.csv --output output/politician.out
 ```
 
-Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 80.
+Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 40.
 
 ```
-python src/diffusion_2_vec.py --dimensions 32 --num-diffusions --vertex-set-cardinality 80
+python src/diffusion_2_vec.py --dimensions 32 --num-diffusions --vertex-set-cardinality 40
 ```
 
 ### Citing
