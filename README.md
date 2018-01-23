@@ -20,7 +20,7 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 
 ### Options
 
-Learning and inference of boosted generative models is handled by the `main.py` script which provides the following command line arguments.
+Learning of the embedding is handled by the `main.py` script which provides the following command line arguments.
 
 ```
   --seed INT                 Random seed for numpy, tensorflow
@@ -39,10 +39,9 @@ Learning and inference of boosted generative models is handled by the `main.py` 
   --run-classifier BOOL      Uses generative model for classification if True
 ```
 
-
 ### Examples
 
-The following commands learn a graph embedding and dump it to disk.
+The following commands learn a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
 
 ```
 python src/main.py --input nltcs --run-genbgm --genbgm-alpha 0.5 0.5 --genbgm-beta 0.25 0.125 --run-classifier
@@ -57,6 +56,3 @@ If you find Diff2Vec useful in your research, please consider citing the followi
   author={Rozemberczki, Benedek and Sarkar, Rik},  
   booktitle={International Conference on Complex Networks},  
   year={2018}}
-
-
-
