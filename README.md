@@ -48,7 +48,7 @@ python src/diffusion_2_vec.py
 Creating an embedding of an other dataset named company_edges.csv.
 
 ```
-python src/diffusion_2_vec.py --input data/company_edges.csv --output emb/company.out
+python src/diffusion_2_vec.py --input data/company_edges.csv --output output/company.out
 ```
 
 Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 80.
