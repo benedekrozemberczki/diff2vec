@@ -11,12 +11,12 @@ def parameter_parser():
 
     parser.add_argument('--input',
                         nargs = '?',
-                        default = './PPI/edges.csv',
+                        default = './data/restaurant_edges.csv',
 	                help = 'Input graph path')
 
     parser.add_argument('--output',
                         nargs = '?',
-                        default = './PPI/embedding.out',
+                        default = './data/restaurant.out',
 	                help = 'Embeddings path')
 
     parser.add_argument('--dimensions',
