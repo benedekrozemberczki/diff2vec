@@ -40,7 +40,7 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
 
 The following commands learn a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
 
-Creating an embedding of the default dataset.
+Creating an embedding of the default dataset with the default hyperparameter settings.
 
 ```
 python src/diffusion_2_vec.py
@@ -54,7 +54,7 @@ python src/diffusion_2_vec.py --input data/politician_edges.csv --output output/
 Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 80.
 
 ```
-python src/diffusion_2_vec.py
+python src/diffusion_2_vec.py --dimensions 32 --num-diffusions --vertex-set-cardinality 80
 ```
 
 ### Citing
