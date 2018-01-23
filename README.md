@@ -25,7 +25,7 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
 
 ```
   --input STR                   Path to the edge list csv.                Default is `data/restaurant_edges.csv`
-  --output STR                  Path to to embedding.                     Default is `emb/restaurant.out`
+  --output STR                  Path to the embedding features.           Default is `emb/restaurant.out`
   --dimensions INT              Number of embedding dimensions.           Default is 128.
   --vertex-set-cardinality INT  Number of nodes per diffusion tree.       Default is 80.
   --num-diffusions INT          Number of diffusion per source node.      Default is 10.
