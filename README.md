@@ -38,7 +38,7 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
 
 ### Examples
 
-The following commands learn a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
+The following commands learns a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
 
 Creating an embedding of the default dataset with the default hyperparameter settings.
 
