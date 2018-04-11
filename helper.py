@@ -6,7 +6,7 @@ def parameter_parser():
     """
     A method to parse up command line parameters. By default it gives an embedding of the Facebook Restaurants network.
     The default hyperparameters give a high quality representation already without grid search.
-    :return : Object with parameters.
+    :return : Object with hyperparameters.
     """
 
     parser = argparse.ArgumentParser(description = "Run diffusion2vec.")
