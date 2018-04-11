@@ -6,7 +6,6 @@ class EulerianDiffuser:
     Class to make diffusions for a given graph.
     """
     def __init__(self, graph, number_of_nodes):
-
         """
         Initializing a diffusion object.
         :param graph: Graph of interest.
