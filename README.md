@@ -20,6 +20,9 @@ tqdm              4.19.5
 numpy             1.13.3
 pandas            0.20.3
 texttable         1.2.1
+gensim            3.0.0
+scipy             0.19.1
+networkx          1.11
 ```
 
 ### Datasets
