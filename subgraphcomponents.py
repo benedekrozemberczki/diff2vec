@@ -11,7 +11,12 @@ class SubGraphComponents:
     """
     
     def __init__(self, edge_list_path, seeding, vertex_set_cardinality):
-        
+        """
+        Initializing the object with the main parameters.
+        :param edge_list_path: Path to the csv with edges.
+        :param seeding: Random seed.
+        :param vertex_set_cardinality: Number of unique nodes per tree.
+        """
         self.seed = seeding
         self.vertex_set_cardinality = vertex_set_cardinality
         self.read_start_time = time.time()
@@ -23,13 +28,12 @@ class SubGraphComponents:
         """
         Finding the connected components.
         """
-
         self.graph = sorted(nx.connected_component_subgraphs(self.graph), key = len, reverse = True)
         self.read_time = time.time()-self.read_start_time
         
     def single_feature_generation_run(self):
         """
-        Running a round of diffusions.
+        Running a round of diffusions and measuring the sequence generation performance.
         """
         random.seed(self.seed)
         self.generation_start_time = time.time()
