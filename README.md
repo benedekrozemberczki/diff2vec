@@ -33,7 +33,6 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
   --iter INT                    Number of ASGD iterations.                Default is 1.
   --workers INT                 Number of cores.                          Default is 4.
   --alpha FLOAT                 Initial learning rate.                    Default is 0.025.
-  --type STR                    Type of diffusion tree linearization.     Default is `eulerian`.
 ```
 
 ### Examples
