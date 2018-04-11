@@ -6,6 +6,9 @@ import numpy as np
 import time
 
 class SubGraphComponents:
+    """
+    Methods separate the original graph and run diffusion on each node in the subgraphs.
+    """
     
     def __init__(self, edge_list_path, seeding, vertex_set_cardinality):
         
@@ -17,11 +20,17 @@ class SubGraphComponents:
         self.single_feature_generation_run()
 
     def separate_subcomponents(self):
+        """
+        Finding the connected components.
+        """
 
         self.graph = sorted(nx.connected_component_subgraphs(self.graph), key = len, reverse = True)
         self.read_time = time.time()-self.read_start_time
         
     def single_feature_generation_run(self):
+        """
+        Running a round of diffusions.
+        """
         random.seed(self.seed)
         self.generation_start_time = time.time()
         self.paths = {}
