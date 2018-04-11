@@ -3,10 +3,10 @@ from texttable import Texttable
 import numpy as np
 
 def parameter_parser():
-
     """
     A method to parse up command line parameters. By default it gives an embedding of the Facebook Restaurants network.
     The default hyperparameters give a high quality representation already without grid search.
+    :return : Object with parameters.
     """
 
     parser = argparse.ArgumentParser(description = "Run diffusion2vec.")
@@ -61,6 +61,8 @@ def parameter_parser():
 def generation_tab_printer(read_times, generation_times):
     """
     Function to print the time logs in a nice tabular format.
+    :param read_times: List of reading times.
+    :param generation_times: List of generation times.
     """
     t = Texttable() 
     t.add_rows([["Metric","Value"],
@@ -74,6 +76,10 @@ def generation_tab_printer(read_times, generation_times):
     print t.draw() 
 
 def result_processing(results):
+    """
+    Function to separate the sequences from time measurements and process them.
+    :param results: List of 3-length tuples including the sequences and results.
+    """
     walk_results = map(lambda x: x[0],results)
     read_time_results = map(lambda x: x[1],results)
     generation_time_results = map(lambda x: x[2],results)
