@@ -15,6 +15,13 @@ This repository provides a reference implementation for Diff2Vec as described in
 
 The codebase is implemented in Python 2.7.
 
+```
+tqdm              4.19.5
+numpy             1.13.3
+pandas            0.20.3
+texttable         1.2.1
+```
+
 ### Datasets
 
 The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. A sample graph for the `Facebook Restaurants` dataset is included in the  `data/` directory.
