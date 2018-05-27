@@ -26,7 +26,7 @@ def parameter_parser():
 
     parser.add_argument('--vertex-set-cardinality',
                         type = int,
-                        default = 40,
+                        default = 80,
 	                help = 'Length of diffusion per source is 2*cardianlity-1. Default is 40.')
 
     parser.add_argument('--num-diffusions',
