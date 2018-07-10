@@ -24,6 +24,7 @@ gensim            3.0.0
 scipy             0.19.1
 networkx          1.11
 joblib            0.11
+logging           0.4.9.6  
 ```
 
 ### Datasets
