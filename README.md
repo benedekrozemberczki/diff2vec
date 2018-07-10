@@ -23,6 +23,7 @@ texttable         1.2.1
 gensim            3.0.0
 scipy             0.19.1
 networkx          1.11
+joblib            0.11
 ```
 
 ### Datasets
