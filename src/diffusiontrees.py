@@ -36,9 +36,9 @@ class EulerianDiffuser:
                 sub_graph.add_edges_from([(end_point, sample), (sample, end_point)])
                 if infected_counter == self.number_of_nodes:
                     break
-        euler = [str(u) for u,v in nx.eulerian_circuit(sub_graph, start_node)]
+        euler = [str(u) for u,v in nx.eulerian_circuit(sub_graph, infected[0])]
         if len(euler) == 0:
-            euler = [str(u) for u,v in nx.eulerian_circuit(graph, start_node)]
+            euler = [str(u) for u,v in nx.eulerian_circuit(graph, infected[0])]
         return euler
 
     def run_diffusions(self):
