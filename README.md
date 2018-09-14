@@ -7,6 +7,7 @@ Diffusion to vector is a transductive topological graph embedding procedure insp
   <img width="500" src="diff2vec.jpeg">
 </p>
 This repository provides a reference implementation for Diff2Vec as described in the paper:
+
 > Fast Sequence Based Embedding with Diffusion Graphs.
 > [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and  [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
 > International Conference on Complex Networks, 2018.
