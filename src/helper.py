@@ -89,6 +89,7 @@ def result_processing(results):
     Function to separate the sequences from time measurements and process them.
     :param results: List of 3-length tuples including the sequences and results.
     :return walk_results: List of random walks.
+    :return counts: Number of nodes.
     """
     walk_results = map(lambda x: x[0],results)
     read_time_results = map(lambda x: x[1],results)
