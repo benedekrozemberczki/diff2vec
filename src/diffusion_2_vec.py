@@ -32,6 +32,7 @@ def run_parallel_feature_creation(edge_list_path,  vertex_set_cardinality, numbe
     :param number_of_replicates: Number of unique nodes per diffusion.
     :param num_of_workers: Number of cores used.
     :return walk_results: List of 3-length tuples with sequences and performance measurements.
+    :return counts: Number of nodes.
     """
     results = Parallel(n_jobs = num_of_workers)(delayed(create_features)(i, edge_list_path, vertex_set_cardinality) for i in tqdm(range(number_of_replicates)))
     walk_results, counts = result_processing(results)
@@ -41,12 +42,19 @@ def learn_pooled_embeddings(walks, counts, args):
     """
     Method to learn an embedding given the sequences and arguments.
     :param walks: Linear vertex sequences.
+    :param counts: Number of nodes.
     :param args: Arguments.
     """
     model = Word2Vec(walks, size = args.dimensions, window = args.window_size, min_count = 1, sg = 1, workers = args.workers, iter = args.iter, alpha = args.alpha)
     save_embedding(args, model, counts)
 
 def learn_non_pooled_embeddings(walks, counts, args):
+    """
+    Method to learn an embedding given the sequences and arguments.
+    :param walks: Linear vertex sequences.
+    :param counts: Number of nodes.
+    :param args: Arguments.
+    """
     walks = process_non_pooled_model_data(walks, counts, args)
     model = Doc2Vec(walks, size = args.dimensions, window = 0, dm = 0, alpha = args.alpha, iter = args.iter, workers = args.workers)
     save_embedding(args, model, counts)
@@ -54,10 +62,9 @@ def learn_non_pooled_embeddings(walks, counts, args):
 def save_embedding(args, model, counts):
     """
     Function to save the embedding.
-    :param output_path: Path to the embedding csv.
+    :param args: Arguments object.
     :param model: The embedding model object.
-    :param files: The list of files.
-    :param dimensions: The embedding dimension parameter.
+    :param counts: Number of nodes.
     """
     out = []
     for node in range(1,counts):
