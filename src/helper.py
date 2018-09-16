@@ -1,8 +1,8 @@
-import argparse
-from texttable import Texttable
-import numpy as np
 from gensim.models.doc2vec import TaggedDocument
+from texttable import Texttable
 from tqdm import tqdm
+import numpy as np
+import argparse
 
 def parameter_parser():
     """
@@ -100,7 +100,14 @@ def result_processing(results):
 
 
 def process_non_pooled_model_data(walks, counts, args):
-    print("Run Feature extraction")
+    """
+    Function to extract proximity statistics.
+    :param walks: Diffusion lists.
+    :param counts: Number of nodes.
+    :param args: Arguments objects.
+    :return docs: Processed walks.
+    """
+    print("Run feature extraction across windows.")
     features = {str(node):[] for node in range(counts)}
     for walk in tqdm(walks):
         for i in range(len(walk)-args.window_size):
@@ -110,4 +117,3 @@ def process_non_pooled_model_data(walks, counts, args):
 
     docs = [TaggedDocument(words = [x[0] for x in v], tags = [str(k)]) for k, v in features.iteritems()]
     return docs
-    
