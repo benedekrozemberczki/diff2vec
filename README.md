@@ -41,6 +41,7 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
 ```
   --input STR                   Path to the edge list csv.                Default is `data/restaurant_edges.csv`
   --output STR                  Path to the embedding features.           Default is `emb/restaurant.out`
+  --model STR                   Embedding procedure.                      Default is `non-pooled`
   --dimensions INT              Number of embedding dimensions.           Default is 128.
   --vertex-set-cardinality INT  Number of nodes per diffusion tree.       Default is 80.
   --num-diffusions INT          Number of diffusion per source node.      Default is 10.
@@ -62,7 +63,7 @@ python src/diffusion_2_vec.py
 Creating an embedding of an other dataset the `Facebook Politicians`.
 
 ```
-python src/diffusion_2_vec.py --input data/politician_edges.csv --output output/politician.out
+python src/diffusion_2_vec.py --input data/politician_edges.csv --output output/politician.csv
 ```
 
 Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 40.
