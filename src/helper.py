@@ -1,6 +1,8 @@
 import argparse
 from texttable import Texttable
 import numpy as np
+from gensim.models.doc2vec import TaggedDocument
+from tqdm import tqdm
 
 def parameter_parser():
     """
@@ -18,8 +20,13 @@ def parameter_parser():
 
     parser.add_argument('--output',
                         nargs = '?',
-                        default = './output/restaurant.out',
+                        default = './output/restaurant.csv',
 	                help = 'Embeddings path')
+
+    parser.add_argument('--model',
+                        nargs = '?',
+                        default = 'non-pooled',
+	                help = 'Model type.')
 
     parser.add_argument('--dimensions',
                         type = int,
@@ -58,6 +65,8 @@ def parameter_parser():
     
     return parser.parse_args()
 
+
+
 def generation_tab_printer(read_times, generation_times):
     """
     Function to print the time logs in a nice tabular format.
@@ -84,6 +93,21 @@ def result_processing(results):
     walk_results = map(lambda x: x[0],results)
     read_time_results = map(lambda x: x[1],results)
     generation_time_results = map(lambda x: x[2],results)
+    counts = max(map(lambda x: x[3],results))
     generation_tab_printer(read_time_results, generation_time_results)
     walk_results = [walk for walks in walk_results for walk in walks]
-    return walk_results
+    return walk_results, counts
+
+
+def process_non_pooled_model_data(walks, counts, args):
+    print("Run Feature extraction")
+    features = {str(node):[] for node in range(counts)}
+    for walk in tqdm(walks):
+        for i in range(len(walk)-args.window_size):
+            for j in range(1,args.window_size+1):
+                features[walk[i]].append(["+"+str(j)+"_"+walk[i+j]])
+                features[walk[i+j]].append(["_"+str(j)+"_"+walk[i]])
+
+    docs = [TaggedDocument(words = [x[0] for x in v], tags = [str(k)]) for k, v in features.iteritems()]
+    return docs
+    

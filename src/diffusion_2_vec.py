@@ -1,9 +1,10 @@
 from subgraphcomponents import SubGraphComponents
-from helper import parameter_parser, result_processing
+from helper import parameter_parser, result_processing, process_non_pooled_model_data
 from joblib import Parallel, delayed
-from gensim.models import Word2Vec
+from gensim.models import Word2Vec, Doc2Vec
 from gensim.models.word2vec import logger, FAST_VERSION
 from tqdm import tqdm
+import pandas as pd
 import logging
 import numpy.distutils.system_info as sysinfo
 import scipy; scipy.show_config()
@@ -21,7 +22,7 @@ def create_features(seeding, edge_list_path, vertex_set_cardinality):
     :return: Sequences and measurements.
     """
     sub_graphs = SubGraphComponents(edge_list_path, seeding, vertex_set_cardinality)
-    return sub_graphs.paths, sub_graphs.read_time, sub_graphs.generation_time
+    return sub_graphs.paths, sub_graphs.read_time, sub_graphs.generation_time, sub_graphs.counts
 
 def run_parallel_feature_creation(edge_list_path,  vertex_set_cardinality, number_of_replicates, num_of_workers):
     """
@@ -33,17 +34,41 @@ def run_parallel_feature_creation(edge_list_path,  vertex_set_cardinality, numbe
     :return walk_results: List of 3-length tuples with sequences and performance measurements.
     """
     results = Parallel(n_jobs = num_of_workers)(delayed(create_features)(i, edge_list_path, vertex_set_cardinality) for i in tqdm(range(number_of_replicates)))
-    walk_results = result_processing(results)
-    return walk_results
+    walk_results, counts = result_processing(results)
+    return walk_results, counts
     
-def learn_embeddings(walks, args):
+def learn_pooled_embeddings(walks, counts, args):
     """
     Method to learn an embedding given the sequences and arguments.
     :param walks: Linear vertex sequences.
     :param args: Arguments.
     """
     model = Word2Vec(walks, size = args.dimensions, window = args.window_size, min_count = 1, sg = 1, workers = args.workers, iter = args.iter, alpha = args.alpha)
-    model.wv.save_word2vec_format(args.output)
+    save_embedding(args, model, counts)
+
+def learn_non_pooled_embeddings(walks, counts, args):
+    walks = process_non_pooled_model_data(walks, counts, args)
+    model = Doc2Vec(walks, size = args.dimensions, window = 0, dm = 0, alpha = args.alpha, iter = args.iter, workers = args.workers)
+    save_embedding(args, model, counts)
+
+def save_embedding(args, model, counts):
+    """
+    Function to save the embedding.
+    :param output_path: Path to the embedding csv.
+    :param model: The embedding model object.
+    :param files: The list of files.
+    :param dimensions: The embedding dimension parameter.
+    """
+    out = []
+    for node in range(1,counts):
+        if args.model == "non-pooled":
+            out.append([int(node)-1] + list(model.docvecs[node]))
+        else:
+            out.append([int(node)-1] + list(model.wv[str(node-1)]))
+    columns =  ["node"] +map(lambda x: "x_" +str(x), range(0,args.dimensions))
+    out = pd.DataFrame(out, columns = columns)
+    out = out.sort_values(["node"])
+    out.to_csv(args.output, index = None)
 
 def main(args):
     """
@@ -51,9 +76,13 @@ def main(args):
     :param args: Arguments object.
     """
     print("\n---------------------------\nFeature extraction starts.\n---------------------------\n\n")
-    walks = run_parallel_feature_creation(args.input,  args.vertex_set_cardinality, args.num_diffusions, args.workers)
+    walks, counts = run_parallel_feature_creation(args.input,  args.vertex_set_cardinality, args.num_diffusions, args.workers)
     print("\n-----------------\nLearning starts.\n-----------------\n")
-    learn_embeddings(walks, args)
+
+    if args.model == "non-pooled":
+        learn_non_pooled_embeddings(walks, counts, args)   
+    else:
+        learn_pooled_embeddings(walks, counts, args)     
 
 if __name__ == "__main__":
     args = parameter_parser()

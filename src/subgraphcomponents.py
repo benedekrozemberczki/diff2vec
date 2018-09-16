@@ -21,6 +21,7 @@ class SubGraphComponents:
         self.vertex_set_cardinality = vertex_set_cardinality
         self.read_start_time = time.time()
         self.graph = nx.from_edgelist(pd.read_csv(edge_list_path, index_col = None).values.tolist())
+        self.counts = len(self.graph.nodes()) + 1
         self.separate_subcomponents()
         self.single_feature_generation_run()
 
