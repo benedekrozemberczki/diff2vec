@@ -14,6 +14,16 @@ This repository provides a reference implementation for Diff2Vec as described in
 > http://homepages.inf.ed.ac.uk/s1668259/papers/sequence.pdf
 
 
+### Citing
+
+If you find Diff2Vec useful in your research, please consider citing the following paper:
+
+>@inproceedings{rozemberczki2018fastsequence,  
+  title={Fast Sequence Based Embedding with Diffusion Graphs},  
+  author={Rozemberczki, Benedek and Sarkar, Rik},  
+  booktitle={International Conference on Complex Networks},  
+  year={2018}}
+
 ### Requirements
 
 The codebase is implemented in Python 2.7.
@@ -71,13 +81,3 @@ Creating an embedding of the default dataset in 32 dimensions, 5 sequences per s
 ```
 python src/diffusion_2_vec.py --dimensions 32 --num-diffusions 5 --vertex-set-cardinality 40
 ```
-
-### Citing
-
-If you find Diff2Vec useful in your research, please consider citing the following paper:
-
->@inproceedings{rozemberczki2018fastsequence,  
-  title={Fast Sequence Based Embedding with Diffusion Graphs},  
-  author={Rozemberczki, Benedek and Sarkar, Rik},  
-  booktitle={International Conference on Complex Networks},  
-  year={2018}}
