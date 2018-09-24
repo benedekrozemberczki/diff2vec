@@ -25,7 +25,7 @@ def parameter_parser():
 
     parser.add_argument('--model',
                         nargs = '?',
-                        default = 'non-pooled',
+                        default = 'pooled',
 	                help = 'Model type.')
 
     parser.add_argument('--dimensions',
