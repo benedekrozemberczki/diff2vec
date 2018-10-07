@@ -50,7 +50,7 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
 #### Input and output options
 ```
   --input    STR     Path to the edge list csv.            Default is `data/restaurant_edges.csv`
-  --output   STR     Path to the embedding features.       Default is `emb/restaurant.out`
+  --output   STR     Path to the embedding features.       Default is `emb/restaurant.csv`
 ```
 
 #### Model options
