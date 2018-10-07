@@ -47,20 +47,23 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 ### Options
 
 Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.
-
+#### Input and output options
 ```
-  --input STR                   Path to the edge list csv.                Default is `data/restaurant_edges.csv`
-  --output STR                  Path to the embedding features.           Default is `emb/restaurant.out`
-  --model STR                   Embedding procedure.                      Default is `non-pooled`
-  --dimensions INT              Number of embedding dimensions.           Default is 128.
-  --vertex-set-cardinality INT  Number of nodes per diffusion tree.       Default is 80.
-  --num-diffusions INT          Number of diffusion per source node.      Default is 10.
-  --window-size INT             Context size for optimization.            Default is 10.
-  --iter INT                    Number of ASGD iterations.                Default is 1.
-  --workers INT                 Number of cores.                          Default is 4.
-  --alpha FLOAT                 Initial learning rate.                    Default is 0.025.
+  --input    STR     Path to the edge list csv.            Default is `data/restaurant_edges.csv`
+  --output   STR     Path to the embedding features.       Default is `emb/restaurant.out`
 ```
 
+#### Model options
+```
+  --model                    STR      Embedding procedure.                      Default is `non-pooled`
+  --dimensions               INT      Number of embedding dimensions.           Default is 128.
+  --vertex-set-cardinality   INT      Number of nodes per diffusion tree.       Default is 80.
+  --num-diffusions           INT      Number of diffusions per source node.     Default is 10.
+  --window-size              INT      Context size for optimization.            Default is 10.
+  --iter                     INT      Number of ASGD iterations.                Default is 1.
+  --workers                  INT      Number of cores.                          Default is 4.
+  --alpha                    FLOAT    Initial learning rate.                    Default is 0.025.
+```
 ### Examples
 
 The following commands learns a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
