@@ -26,17 +26,16 @@ If you find Diff2Vec useful in your research, please consider citing the followi
 
 ### Requirements
 
-The codebase is implemented in Python 2.7.
+The codebase is implemented in Python 3.5.2 | Anaconda 4.2.0 (64-bit).
 
 ```
-tqdm              4.19.5
-numpy             1.13.3
-pandas            0.20.3
-texttable         1.2.1
-gensim            3.0.0
-scipy             0.19.1
+tqdm              4.28.1
+numpy             1.15.4
+pandas            0.23.4
+texttable         1.5.0
+gensim            3.6.0
 networkx          1.11
-joblib            0.11
+joblib            0.13.0
 logging           0.4.9.6  
 ```
 
