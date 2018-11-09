@@ -1,14 +1,13 @@
-from subgraphcomponents import SubGraphComponents
-from helper import parameter_parser, result_processing, process_non_pooled_model_data
+import time
+import logging
+import pandas as pd
+from tqdm import tqdm
 from joblib import Parallel, delayed
 from gensim.models import Word2Vec, Doc2Vec
-from gensim.models.word2vec import logger, FAST_VERSION
-from tqdm import tqdm
-import pandas as pd
-import logging
 import numpy.distutils.system_info as sysinfo
-import scipy; scipy.show_config()
-import time
+from subgraphcomponents import SubGraphComponents
+from gensim.models.word2vec import logger, FAST_VERSION
+from helper import parameter_parser, result_processing, process_non_pooled_model_data, argument_printer
 
 logging.basicConfig(format="%(asctime)s : %(levelname)s : %(message)s", level=logging.INFO)
 sysinfo.get_info("atlas")
@@ -67,12 +66,12 @@ def save_embedding(args, model, counts):
     :param counts: Number of nodes.
     """
     out = []
-    for node in range(1,counts):
+    for node in range(1,counts[0]):
         if args.model == "non-pooled":
             out.append([int(node)-1] + list(model.docvecs[node]))
         else:
             out.append([int(node)-1] + list(model.wv[str(node-1)]))
-    columns =  ["node"] +map(lambda x: "x_" +str(x), range(0,args.dimensions))
+    columns =  ["node"] + ["x_" +str(x) for x in range(args.dimensions)]
     out = pd.DataFrame(out, columns = columns)
     out = out.sort_values(["node"])
     out.to_csv(args.output, index = None)
@@ -82,6 +81,7 @@ def main(args):
     Main method for creating sequences and learning the embedding.
     :param args: Arguments object.
     """
+    argument_printer(args)
     print("\n---------------------------\nFeature extraction starts.\n---------------------------\n\n")
     walks, counts = run_parallel_feature_creation(args.input,  args.vertex_set_cardinality, args.num_diffusions, args.workers)
     print("\n-----------------\nLearning starts.\n-----------------\n")

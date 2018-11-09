@@ -46,5 +46,5 @@ class SubGraphComponents:
                 self.vertex_set_cardinality = current_cardinality
             diffuser = EulerianDiffuser(sub_graph, self.vertex_set_cardinality)
             self.paths.update(diffuser.diffusions)
-        self.paths = self.paths.values()
+        self.paths = [v for k,v in self.paths.items()]
         self.generation_time = time.time() - self.generation_start_time

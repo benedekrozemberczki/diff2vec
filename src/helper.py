@@ -66,6 +66,16 @@ def parameter_parser():
     return parser.parse_args()
 
 
+def argument_printer(args):
+    """
+    Function to print the arguments in a nice tabular format.
+    :param args: Parameters used for the model.
+    """
+    args = vars(args)
+    keys = sorted(args.keys())
+    t = Texttable() 
+    t.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
+    print(t.draw())
 
 def generation_tab_printer(read_times, generation_times):
     """
@@ -77,12 +87,12 @@ def generation_tab_printer(read_times, generation_times):
     t.add_rows([["Metric","Value"],
                 ["Mean graph read time:", np.mean(read_times)],
                 ["Standard deviation of read time.",np.std(read_times)]]) 
-    print t.draw() 
+    print(t.draw())
     t = Texttable()
     t.add_rows([["Metric","Value"],
                 ["Mean sequence generation time:", np.mean(generation_times)],
                 ["Standard deviation of generation time.",np.std(generation_times)]])
-    print t.draw() 
+    print(t.draw())
 
 def result_processing(results):
     """
@@ -91,10 +101,10 @@ def result_processing(results):
     :return walk_results: List of random walks.
     :return counts: Number of nodes.
     """
-    walk_results = map(lambda x: x[0],results)
-    read_time_results = map(lambda x: x[1],results)
-    generation_time_results = map(lambda x: x[2],results)
-    counts = max(map(lambda x: x[3],results))
+    walk_results = [res[0] for res in results]
+    read_time_results =[res[1] for res in results]
+    generation_time_results =[res[2] for res in results]
+    counts = [res[3] for res in results]
     generation_tab_printer(read_time_results, generation_time_results)
     walk_results = [walk for walks in walk_results for walk in walks]
     return walk_results, counts
@@ -116,5 +126,5 @@ def process_non_pooled_model_data(walks, counts, args):
                 features[walk[i]].append(["+"+str(j)+"_"+walk[i+j]])
                 features[walk[i+j]].append(["_"+str(j)+"_"+walk[i]])
 
-    docs = [TaggedDocument(words = [x[0] for x in v], tags = [str(k)]) for k, v in features.iteritems()]
+    docs = [TaggedDocument(words = [x[0] for x in v], tags = [str(k)]) for k, v in features.items()]
     return docs
