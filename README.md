@@ -1,4 +1,4 @@
-Diff2Vec 	<img src="https://img.shields.io/badge/stars-20+-blue.svg"/>
+Diff2Vec 	<img src="https://img.shields.io/badge/stars-30+-blue.svg"/>
         <img src="https://img.shields.io/badge/forks-5+-blue.svg"/>
 	<img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
 ============================================
