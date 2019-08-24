@@ -1,9 +1,9 @@
-from diffusiontrees import EulerianDiffuser
-import pandas as pd
-import networkx as nx
+import time
 import random
 import numpy as np
-import time
+import pandas as pd
+import networkx as nx
+from diffusiontrees import EulerianDiffuser
 
 class SubGraphComponents:
     """
