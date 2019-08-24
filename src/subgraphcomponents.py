@@ -9,7 +9,6 @@ class SubGraphComponents:
     """
     Methods separate the original graph and run diffusion on each node in the subgraphs.
     """
-    
     def __init__(self, edge_list_path, seeding, vertex_set_cardinality):
         """
         Initializing the object with the main parameters.
