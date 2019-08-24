@@ -26,7 +26,6 @@ class EulerianDiffuser:
         sub_graph = nx.DiGraph()
         sub_graph.add_node(node)
         infected_counter = 1
-        
         while infected_counter < self.number_of_nodes:
             end_point = random.sample(infected, 1)[0]
             sample = random.sample(self.graph.neighbors(end_point), 1)[0]
