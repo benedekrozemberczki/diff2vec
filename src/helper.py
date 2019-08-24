@@ -1,8 +1,8 @@
-from gensim.models.doc2vec import TaggedDocument
-from texttable import Texttable
-from tqdm import tqdm
-import numpy as np
 import argparse
+import numpy as np
+from tqdm import tqdm
+from texttable import Texttable
+from gensim.models.doc2vec import TaggedDocument
 
 def parameter_parser():
     """
