@@ -9,8 +9,9 @@ from subgraphcomponents import SubGraphComponents
 from gensim.models.word2vec import logger, FAST_VERSION
 from helper import parameter_parser, result_processing, process_non_pooled_model_data, argument_printer
 
-logging.basicConfig(format="%(asctime)s : %(levelname)s : %(message)s", level=logging.INFO)
 sysinfo.get_info("atlas")
+logging.basicConfig(format="%(asctime)s : %(levelname)s : %(message)s", level=logging.INFO)
+
 
 def create_features(seeding, edge_list_path, vertex_set_cardinality):
     """
