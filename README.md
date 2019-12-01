@@ -45,12 +45,12 @@ logging           0.4.9.6
 ```
 
 ### Datasets
-
-The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. A sample graph for the `Facebook Restaurants` dataset is included in the  `data/` directory.
+<p align="justify">
+The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. A sample graph for the `Facebook Restaurants` dataset is included in the  `data/` directory.</p>
 
 ### Options
-
-Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.
+<p align="justify">
+Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.</p>
 #### Input and output options
 ```
   --input    STR     Path to the edge list csv.            Default is `data/restaurant_edges.csv`
@@ -69,9 +69,9 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
   --alpha                    FLOAT    Initial learning rate.                    Default is 0.025.
 ```
 ### Examples
-
+<p align="justify">
 The following commands learns a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
-
+</p>
 Creating an embedding of the default dataset with the default hyperparameter settings.
 
 ```
@@ -82,8 +82,8 @@ Creating an embedding of an other dataset the `Facebook Politicians`.
 ```
 python src/diffusion_2_vec.py --input data/politician_edges.csv --output output/politician.csv
 ```
-
-Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 40.
+<p align="justify">
+Creating an embedding of the default dataset in 32 dimensions, 5 sequences per source node with maximal vertex set cardinality of 40.</p>
 
 ```
 python src/diffusion_2_vec.py --dimensions 32 --num-diffusions 5 --vertex-set-cardinality 40
