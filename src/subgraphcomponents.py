@@ -1,6 +1,7 @@
+"""Subgraph components module."""
+
 import time
 import random
-import numpy as np
 import pandas as pd
 import networkx as nx
 from diffusiontrees import EulerianDiffuser
@@ -19,8 +20,8 @@ class SubGraphComponents:
         self.seed = seeding
         self.vertex_set_cardinality = vertex_set_cardinality
         self.read_start_time = time.time()
-        self.graph = nx.from_edgelist(pd.read_csv(edge_list_path, index_col = None).values.tolist())
-        self.counts = len(self.graph.nodes()) + 1
+        self.graph = nx.from_edgelist(pd.read_csv(edge_list_path, index_col=None).values.tolist())
+        self.counts = len(self.graph.nodes())+1
         self.separate_subcomponents()
         self.single_feature_generation_run()
 
@@ -28,9 +29,10 @@ class SubGraphComponents:
         """
         Finding the connected components.
         """
-        self.graph = sorted(nx.connected_component_subgraphs(self.graph), key = len, reverse = True)
+        comps = [self.graph.subgraph(c) for c in nx.connected_components(self.graph)]
+        self.graph = sorted(comps, key=len, reverse=True)
         self.read_time = time.time()-self.read_start_time
-        
+
     def single_feature_generation_run(self):
         """
         Running a round of diffusions and measuring the sequence generation performance.
@@ -38,12 +40,11 @@ class SubGraphComponents:
         random.seed(self.seed)
         self.generation_start_time = time.time()
         self.paths = {}
-
         for sub_graph in self.graph:
             current_cardinality = len(sub_graph.nodes())
             if current_cardinality < self.vertex_set_cardinality:
                 self.vertex_set_cardinality = current_cardinality
             diffuser = EulerianDiffuser(sub_graph, self.vertex_set_cardinality)
             self.paths.update(diffuser.diffusions)
-        self.paths = [v for k,v in self.paths.items()]
+        self.paths = [v for k, v in self.paths.items()]
         self.generation_time = time.time() - self.generation_start_time
