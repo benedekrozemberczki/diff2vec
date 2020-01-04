@@ -52,6 +52,7 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 
 <p align="justify">
 Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.</p>
+
 #### Input and output options
 ```
   --input    STR     Path to the edge list csv.            Default is `data/restaurant_edges.csv`
