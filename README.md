@@ -49,6 +49,7 @@ logging           0.4.9.6
 The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. A sample graph for the `Facebook Restaurants` dataset is included in the  `data/` directory.</p>
 
 ### Options
+
 <p align="justify">
 Learning of the embedding is handled by the `src/diffusion_2_vec.py` script which provides the following command line arguments.</p>
 #### Input and output options
@@ -68,7 +69,9 @@ Learning of the embedding is handled by the `src/diffusion_2_vec.py` script whic
   --workers                  INT      Number of cores.                          Default is 4.
   --alpha                    FLOAT    Initial learning rate.                    Default is 0.025.
 ```
+
 ### Examples
+
 <p align="justify">
 The following commands learns a graph embedding and writes it to disk. The first column in the embedding file is the node ID.
 </p>
