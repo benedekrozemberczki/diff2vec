@@ -15,7 +15,7 @@ This repository provides a reference implementation for Diff2Vec as described in
 > Fast Sequence Based Embedding with Diffusion Graphs.
 > [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and  [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
 > International Conference on Complex Networks, 2018.
-> http://homepages.inf.ed.ac.uk/s1668259/papers/sequence.pdf
+> https://arxiv.org/abs/2001.07463
 
 
 ### Citing
