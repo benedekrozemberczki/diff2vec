@@ -12,10 +12,9 @@ A graph embedding is a representation of graph vertices in a low-dimensional spa
 </p>
 This repository provides a reference implementation for Diff2Vec as described in the paper:
 
-> Fast Sequence Based Embedding with Diffusion Graphs.
+> [Fast Sequence Based Embedding with Diffusion Graphs](https://arxiv.org/abs/2001.07463)
 > [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and  [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
 > International Conference on Complex Networks, 2018.
-> https://arxiv.org/abs/2001.07463
 
 
 ### Citing
