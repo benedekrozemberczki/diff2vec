@@ -10,6 +10,10 @@ A graph embedding is a representation of graph vertices in a low-dimensional spa
 <p align="center">
   <img width="500" src="diff2vec.jpeg">
 </p>
+
+The model is now also available in the package [Karate Club](https://github.com/benedekrozemberczki/karateclub).
+
+
 This repository provides a reference implementation for Diff2Vec as described in the paper:
 
 > [Fast Sequence Based Embedding with Diffusion Graphs](https://arxiv.org/abs/2001.07463)
