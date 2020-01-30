@@ -24,7 +24,7 @@ This repository provides a reference implementation for Diff2Vec as described in
 ### Citing
 
 If you find Diff2Vec useful in your research, please consider citing the following paper:
-
+```bibtex
 >@inproceedings{rozemberczki2018fastsequence,  
   title={Fast Sequence Based Embedding with Diffusion Graphs},  
   author={Rozemberczki, Benedek and Sarkar, Rik},  
@@ -32,7 +32,7 @@ If you find Diff2Vec useful in your research, please consider citing the followi
   year={2018},  
   pages={99--107}
  }
-
+```
 ### Requirements
 
 The codebase is implemented in Python 3.5.2 | Anaconda 4.2.0 (64-bit).
