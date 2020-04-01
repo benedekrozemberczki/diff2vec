@@ -1,6 +1,4 @@
 # Diff2Vec
-![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/diff2vec.svg?style=plastic)
-![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/diff2vec.svg?color=blue&style=plastic)
 ![License](https://img.shields.io/github/license/benedekrozemberczki/diff2vec.svg?color=blue&style=plastic)
 [![Arxiv](https://img.shields.io/badge/ArXiv-2001.07463-orange.svg?color=blue&style=plastic)](https://arxiv.org/pdf/2001.07463.pdf)
 
