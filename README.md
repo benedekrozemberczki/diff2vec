@@ -1,4 +1,4 @@
-# Diff2Vec
+Diff2Vec
 ============================================================
 
 ![License](https://img.shields.io/github/license/benedekrozemberczki/diff2vec.svg?color=blue&style=plastic)
