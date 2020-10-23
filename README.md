@@ -27,7 +27,7 @@ This repository provides a reference implementation for Diff2Vec as described in
 If you find Diff2Vec useful in your research, please consider citing the following paper:
 ```bibtex
 >@inproceedings{rozemberczki2018fastsequence,  
-  title={Fast Sequence Based Embedding with Diffusion Graphs},  
+  title={{Fast Sequence Based Embedding with Diffusion Graphs}},  
   author={Rozemberczki, Benedek and Sarkar, Rik},  
   booktitle={International Conference on Complex Networks},  
   year={2018},  
