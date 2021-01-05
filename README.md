@@ -1,7 +1,6 @@
 Diff2Vec
 ============================================================
 
-![License](https://img.shields.io/github/license/benedekrozemberczki/diff2vec.svg?color=blue&style=plastic)
 [![Arxiv](https://img.shields.io/badge/ArXiv-2001.07463-orange.svg?color=blue&style=plastic)](https://arxiv.org/pdf/2001.07463.pdf) [![codebeat badge](https://codebeat.co/badges/6050dda6-4bd9-4977-985a-67cd4686d410)](https://codebeat.co/projects/github-com-benedekrozemberczki-diff2vec-master)
 [![repo size](https://img.shields.io/github/repo-size/benedekrozemberczki/diff2vec.svg)](https://github.com/benedekrozemberczki/diff2vec/archive/master.zip)
 <p align="justify">
@@ -97,3 +96,8 @@ Creating an embedding of the default dataset in 32 dimensions, 5 sequences per s
 ```
 python src/diffusion_2_vec.py --dimensions 32 --num-diffusions 5 --vertex-set-cardinality 40
 ```
+--------------------------------------------------------------------------------
+
+**License**
+
+- [GNU](https://github.com/benedekrozemberczki/diff2vec/blob/master/LICENSE)
