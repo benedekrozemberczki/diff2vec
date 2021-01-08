@@ -1,7 +1,7 @@
 Diff2Vec
 ============================================================
 
-[![Arxiv](https://img.shields.io/badge/ArXiv-2001.07463-orange.svg?color=blue&style=plastic)](https://arxiv.org/pdf/2001.07463.pdf) [![codebeat badge](https://codebeat.co/badges/6050dda6-4bd9-4977-985a-67cd4686d410)](https://codebeat.co/projects/github-com-benedekrozemberczki-diff2vec-master)
+[![Arxiv](https://img.shields.io/badge/ArXiv-2001.07463-orange.svg)](https://arxiv.org/pdf/2001.07463.pdf) [![codebeat badge](https://codebeat.co/badges/6050dda6-4bd9-4977-985a-67cd4686d410)](https://codebeat.co/projects/github-com-benedekrozemberczki-diff2vec-master)
 [![repo size](https://img.shields.io/github/repo-size/benedekrozemberczki/diff2vec.svg)](https://github.com/benedekrozemberczki/diff2vec/archive/master.zip)
 <p align="justify">
 A graph embedding is a representation of graph vertices in a low-dimensional space, which approximately preserves properties such as distances between nodes. Vertex sequence-based embedding procedures use features extracted from linear sequences of nodes to create embeddings using a neural network. In this paper, we propose diffusion graphs as a method to rapidly generate vertex sequences for network embedding. Its computational efficiency is superior to previous methods due to simpler sequence generation, and it produces more accurate results. In experiments, we found that the performance relative to other methods improves with increasing edge density in the graph. In a community detection task, clustering nodes in the embedding space produces better results compared to other sequence-based embedding methods. 
