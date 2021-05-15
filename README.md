@@ -101,3 +101,5 @@ python src/diffusion_2_vec.py --dimensions 32 --num-diffusions 5 --vertex-set-ca
 **License**
 
 - [GNU](https://github.com/benedekrozemberczki/diff2vec/blob/master/LICENSE)
+
+--------------------------------------------------------------------------------
