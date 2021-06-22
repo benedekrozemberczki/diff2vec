@@ -20,6 +20,7 @@ This repository provides a reference implementation for **Diff2Vec** as describe
 > [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and  [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
 > International Conference on Complex Networks, 2018.
 
+--------------------------------------------------------------
 
 ### Citing
 
