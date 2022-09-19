@@ -97,10 +97,10 @@ Creating an embedding of the default dataset in 32 dimensions, 5 sequences per s
 ```
 python src/diffusion_2_vec.py --dimensions 32 --num-diffusions 5 --vertex-set-cardinality 40
 ```
---------------------------------------------------------------------------------
+-----------------------------------------------------------------
 
 **License**
 
 - [GNU](https://github.com/benedekrozemberczki/diff2vec/blob/master/LICENSE)
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------
