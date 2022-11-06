@@ -1,5 +1,5 @@
 Diff2Vec
-=======================================
+===============================
 
 [![Arxiv](https://img.shields.io/badge/ArXiv-2001.07463-orange.svg)](https://arxiv.org/pdf/2001.07463.pdf) [![codebeat badge](https://codebeat.co/badges/6050dda6-4bd9-4977-985a-67cd4686d410)](https://codebeat.co/projects/github-com-benedekrozemberczki-diff2vec-master)
 [![repo size](https://img.shields.io/github/repo-size/benedekrozemberczki/diff2vec.svg)](https://github.com/benedekrozemberczki/diff2vec/archive/master.zip) [![benedekrozemberczki](https://img.shields.io/twitter/follow/benrozemberczki?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=benrozemberczki) 
